@@ -1346,11 +1346,11 @@ class MyCtrl(wx.Control):
             if addChar:
                 cs.char = chr(kc)
 
-                if opts.isTest and (cs.char == "å"):
+                if opts.isTest and (cs.char == "ï¿½"):
                     self.loadFile("sample.trelby")
-                elif opts.isTest and (cs.char == "¤"):
+                elif opts.isTest and (cs.char == "ï¿½"):
                     self.cmdTest(cs)
-                elif opts.isTest and (cs.char == "½"):
+                elif opts.isTest and (cs.char == "ï¿½"):
                     self.cmdSpeedTest(cs)
                 else:
                     self.sp.addCharCmd(cs)
@@ -1981,6 +1981,15 @@ class MyFrame(wx.Frame):
             ib.AddIcon(wx.Icon(misc.getBitmap("resources/icon%s.png" % sz)))
 
         self.SetIcons(ib)
+
+    def autosave(self):
+        ##https://stackoverflow.com/questions/19877132/wxpython-update-statictext-every-x-seconds-minutes-using-timer
+        ## If a filename exists
+        ##      save the file
+        ##      wx.CallLater(3000, self.autosave) # This should recall this function every 3 seconds
+        ## Else
+        ##      pass
+        pass
 
     def allocIds(self):
         names = [
