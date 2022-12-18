@@ -28,6 +28,7 @@ import util
 import viewmode
 import watermarkdlg
 import webbrowser
+import threading
 
 import copy
 import os
@@ -205,6 +206,14 @@ class MyCtrl(wx.Control):
 
         self.createEmptySp()
         self.updateScreen(redraw = False)
+
+        auto_save_thread = threading.Thread(target=self.autosave())
+        auto_save_thread.start()
+    
+    def autosave(self):
+        if self.fileName:
+            self.saveFile(self.fileName)
+        wx.CallLater(3000, self.autosave)
 
     def OnChangeType(self, event):
         cs = screenplay.CommandState()
@@ -1981,15 +1990,6 @@ class MyFrame(wx.Frame):
             ib.AddIcon(wx.Icon(misc.getBitmap("resources/icon%s.png" % sz)))
 
         self.SetIcons(ib)
-
-    def autosave(self):
-        ##https://stackoverflow.com/questions/19877132/wxpython-update-statictext-every-x-seconds-minutes-using-timer
-        ## If a filename exists
-        ##      save the file
-        ##      wx.CallLater(3000, self.autosave) # This should recall this function every 3 seconds
-        ## Else
-        ##      pass
-        pass
 
     def allocIds(self):
         names = [
