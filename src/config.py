@@ -989,6 +989,9 @@ class ConfigGlobal:
         # whether to auto-capitalize i -> I
         v.addBool("capitalizeI", True, "CapitalizeI")
 
+        # whether to autosave
+        v.addBool("autosave", True, "Autosave")
+
         # whether to open scripts on their last saved position
         v.addBool("honorSavedPos", True, "OpenScriptOnSavedPos")
 
