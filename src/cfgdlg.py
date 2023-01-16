@@ -1084,6 +1084,7 @@ class MiscPanel(wx.Panel):
         self.checkListItems = [
             ("capitalize", "Auto-capitalize sentences"),
             ("capitalizeI", "Auto-capitalize i -> I"),
+            ("autosave", "Autosave screenplay"),
             ("honorSavedPos", "When opening a script, start at last saved position"),
             ("recenterOnScroll", "Recenter screen on scrolling"),
             ("overwriteSelectionOnInsert", "Typing replaces selected text"),
