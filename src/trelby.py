@@ -211,6 +211,7 @@ class MyCtrl(wx.Control):
         auto_save_thread.start()
     
     def autosave(self):
+        print(config.ConfigGlobal())
         if self.fileName:
             self.saveFile(self.fileName)
         wx.CallLater(3000, self.autosave)
