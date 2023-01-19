@@ -29,7 +29,7 @@ import viewmode
 import watermarkdlg
 import webbrowser
 
-import copy
+import local_copy as copy
 import os
 import os.path
 import os
