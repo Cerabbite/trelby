@@ -9,6 +9,7 @@ import wx
 class FindDlg(wx.Dialog):
     def __init__(self, parent, ctrl):
         wx.Dialog.__init__(self, parent, -1, "Find & Replace",
+                           pos=(parent.GetPosition()[0] + 80, parent.GetPosition()[1] + 80),
                            style = wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
 
         self.ctrl = ctrl
