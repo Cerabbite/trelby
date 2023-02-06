@@ -24,3 +24,24 @@ UNDO/REDO
    and script contents are exactly the same
 
   -randomly do undo/redo
+
+
+DUAL DIALOG
+===========
+- Get correct indentation (config.py:436)
+Add all the correct indetation according to https://www.scriptwritingsecrets.com/DualDialogue.htm
+	- Charactername Left Side
+	- Parenthesis Left Side
+	- Dialogue Left Side
+	- Charactername Right Side
+	- Parenthesis Right Side
+	- Dialogue Right Side
+
+Support all file formats:
+	- PML
+	- PDF
+	- RTF
+	- Fountain
+	- Trelby
+	- HTML
+	- Formatted text

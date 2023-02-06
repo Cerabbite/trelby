@@ -432,6 +432,13 @@ class Config:
         t.export.isItalic = True
         self.types[t.lt] = t
 
+        print("Is the error here")
+        t = Type(screenplay.DUALDIALOGUE)
+        t = Type(screenplay.DIALOGUE)
+        t.indent = 10
+        t.width = 35
+        self.types[t.lt] = t
+
         # pdf font configs, key = PDF_FONT_*, value = PdfFontInfo
         self.pdfFonts = { }
 
