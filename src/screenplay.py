@@ -13,6 +13,7 @@ LB_FORCED = 4
 LB_LAST = 5
 
 # line types
+# Refference https://www.scriptwritingsecrets.com/DualDialogue.htm
 SCENE = 1
 ACTION = 2
 CHARACTER = 3
@@ -22,6 +23,7 @@ TRANSITION = 6
 SHOT = 7
 NOTE = 8
 ACTBREAK = 9
+DUALDIALOGUE = 10
 
 from typing import Tuple
 
