@@ -1438,6 +1438,7 @@ def _init():
         (screenplay.SHOT,       "=",  "Shot"),
         (screenplay.ACTBREAK,   "@",  "Act break"),
         (screenplay.NOTE,       "%",  "Note")
+        (screenplay.DUALDIALOGUE, "@#", "Dual Dialogue
         ):
 
         ti = TypeInfo(lt, char, name)
