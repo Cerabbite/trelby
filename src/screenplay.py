@@ -43,6 +43,8 @@ import difflib
 import re
 import sys
 import time
+import threading
+import trelby
 
 from lxml import etree
 
@@ -92,6 +94,12 @@ class Screenplay:
         # load/save/creation.
         self.hasChanged = False
 
+        # True if autosave has started
+        self.isSaved = False
+
+        # Time of last change to file
+        self.lastChange = None
+
         # first/last undo objects (undo.Base)
         self.firstUndo = None
         self.lastUndo = None
@@ -116,7 +124,16 @@ class Screenplay:
         return (len(self.lines) > 1) or bool(self.lines[0].text)
 
     def markChanged(self, state = True):
+        print("A change has been made to the file")
+        self.lastChangeTime = time.time_ns()
+        if not self.isSaved:
+            autosaveThread = threading.Thread(target=trelby.MyCtrl.autosave(None, self.lastChangeTime))
+            autosaveThread.start()
+            print(autosaveThread.join(), "RETURN VALUE OF autosaveThread")
+
         self.hasChanged = state
+
+        wx.CallLater(500, self.autosave)
 
     def cursorAsMark(self):
         return Mark(self.line, self.column)
