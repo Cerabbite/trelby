@@ -206,6 +206,14 @@ class MyCtrl(wx.Control):
         self.createEmptySp()
         self.updateScreen(redraw = False)
 
+    def autosave(self, lastChangeTime):
+        print("Autosave function running...")
+        if self.fileName:
+            self.saveFile(self.fileName)
+            return True
+
+        wx.CallLater(500, self.autosave(lastChangeTime))
+
     def OnChangeType(self, event):
         cs = screenplay.CommandState()
 
