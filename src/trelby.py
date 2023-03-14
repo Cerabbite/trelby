@@ -2540,9 +2540,12 @@ class MyFrame(wx.Frame):
     def OnCloseWindow(self, event):
         doExit = True
         if event.CanVeto() and self.isModifications():
-            if wx.MessageBox("You have unsaved changes. Are\n"
-                             "you sure you want to exit?", "Confirm",
-                             wx.YES_NO | wx.NO_DEFAULT, self) == wx.NO:
+            close_msg_box = wx.MessageDialog(self, "You have unsaved changes. Do\nyou want to save your changes?", "Save Changes", wx.YES_NO | wx.CANCEL | wx.YES_DEFAULT)
+            close_msg_box.SetYesNoLabels(wx.ID_SAVE, "&Don't save")
+            response = close_msg_box.ShowModal();
+            if response == wx.ID_YES:
+                self.OnSave()
+            elif response == wx.ID_CANCEL:
                 doExit = False
 
         if doExit:
